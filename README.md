@@ -25,3 +25,9 @@ Title: GitGood
 
  - We are providing a bridge for aspiring developers to be more comfortable working with projects on github, An application that provides the git commands needed to join and complete  any open source project. 
  - Can even be an extension on your browser that can be downloaded from the google chrome store
+
+
+## DATE: PLAN
+
+ - 1/22 
+    - Add filter for different issue difficulty
