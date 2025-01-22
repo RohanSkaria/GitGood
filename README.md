@@ -1,33 +1,71 @@
-# GitGood
-A bridge for aspiring developers to be more comfortable working with projects on github, An application that provides the git commands needed to join and complete  any open source project. 
+# GitHub Project Guide
 
+A React application that helps users discover and contribute to open source projects on GitHub by providing an intuitive interface and step-by-step contribution guidance.
 
-## Project Plan
+## Features
 
-Title: GitGood
+- Search GitHub projects with smart tag filtering
+- Curated project discovery based on skill level and programming language
+- Step-by-step Git command guidance
+- Project posting for collaboration
+- Contribution workflow visualization
 
- - A platform where students or groups of students can post their ‘project description’ to recruit other students for their project. Students that are looking for groups to join or projects to work on, they can also go onto this platform and ‘apply’ for it.
+## Setup
 
-## Goal 1: Git Hub Extension 
+```bash
+# Install dependencies
+npm install
 
- - Make a better UI for accessing GitHub projects that are open source
- - Once you select a topic/resource the Application will give you the git commands to work on   the project
- - Will guide you through the git clone, git add, git commit, git push and any other commands you may need to work on it. 
- - FAQ bot which can answer questions about github and git commands
+# Start development server
+npm run dev
+```
 
+## Project Structure
 
-### Define problem we’re trying to solve:
+```
+src/
+├── components/
+│   ├── ProjectList/        # Project browsing components
+│   ├── SearchBar/         # Search and filtering
+│   ├── ContributionGuide/ # Git workflow guidance
+│   └── ProjectForm/       # Project submission
+├── services/
+│   └── github.ts         # GitHub API integration
+├── types/
+│   └── index.ts         # TypeScript interfaces
+├── constants/
+│   └── tags.ts         # Tag categories and steps
+├── hooks/
+│   └── useGithubSearch.ts # Custom search hook
+└── utils/
+    └── searchQueryBuilder.ts # Search query construction
+```
 
- - As a CS student who needs to have experience working with real world projects, GitHub is difficult to use without having knowledge of git commands. With the use of AI, most students are capable of producing quality code but dont know how to contribute to projects on GitHub.
+## Key Technologies
 
+- React 18
+- TypeScript
+- Tailwind CSS
+- shadcn/ui Components
+- GitHub REST API
+- Lucide Icons
 
-### Our Solution:
+## Getting Started
 
- - We are providing a bridge for aspiring developers to be more comfortable working with projects on github, An application that provides the git commands needed to join and complete  any open source project. 
- - Can even be an extension on your browser that can be downloaded from the google chrome store
+1. Clone the repository
+2. Create a GitHub OAuth application and get your client ID
+3. Copy `.env.example` to `.env.local` and add your GitHub credentials
+4. Install dependencies with `npm install`
+5. Start the development server with `npm run dev`
 
+## Contributing
 
-## DATE: PLAN
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
 
- - 1/22 
-    - Add filter for different issue difficulty
+## License
+
+MIT License
