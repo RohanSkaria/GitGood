@@ -1,71 +1,50 @@
-# GitHub Project Guide
+# React + TypeScript + Vite
 
-A React application that helps users discover and contribute to open source projects on GitHub by providing an intuitive interface and step-by-step contribution guidance.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- Search GitHub projects with smart tag filtering
-- Curated project discovery based on skill level and programming language
-- Step-by-step Git command guidance
-- Project posting for collaboration
-- Contribution workflow visualization
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Setup
+## Expanding the ESLint configuration
 
-```bash
-# Install dependencies
-npm install
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-# Start development server
-npm run dev
+- Configure the top-level `parserOptions` property like this:
+
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## Project Structure
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
 ```
-src/
-├── components/
-│   ├── ProjectList/        # Project browsing components
-│   ├── SearchBar/         # Search and filtering
-│   ├── ContributionGuide/ # Git workflow guidance
-│   └── ProjectForm/       # Project submission
-├── services/
-│   └── github.ts         # GitHub API integration
-├── types/
-│   └── index.ts         # TypeScript interfaces
-├── constants/
-│   └── tags.ts         # Tag categories and steps
-├── hooks/
-│   └── useGithubSearch.ts # Custom search hook
-└── utils/
-    └── searchQueryBuilder.ts # Search query construction
-```
-
-## Key Technologies
-
-- React 18
-- TypeScript
-- Tailwind CSS
-- shadcn/ui Components
-- GitHub REST API
-- Lucide Icons
-
-## Getting Started
-
-1. Clone the repository
-2. Create a GitHub OAuth application and get your client ID
-3. Copy `.env.example` to `.env.local` and add your GitHub credentials
-4. Install dependencies with `npm install`
-5. Start the development server with `npm run dev`
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to your branch
-5. Open a Pull Request
-
-## License
-
-Apache 2.0 License
